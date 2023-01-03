@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.xcode</groupId>
+    <artifactId>java-web-practice</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>java-web-practice</name>
+    <packaging>pom</packaging>
+
+    <parent>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>2.7.3</version>
+        <relativePath/>
+    </parent>
+
+    <!-- 属性/版本定义 -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <project.build.jdk>${java.version}</project.build.jdk>
+        <project.module.version>${project.version}</project.module.version>
+
+        <spring.boot.version>2.6.11</spring.boot.version>
+        <spring.cloud.version>2021.0.4</spring.cloud.version>
+        <spring.cloud-alibaba.version>2021.0.4.0</spring.cloud-alibaba.version>
+        <spring.cloud-loadbalancer>3.1.4</spring.cloud-loadbalancer>
+
+        <mybatis-plus.version>3.5.2</mybatis-plus.version>
+        <mysql-driver.version>8.0.30</mysql-driver.version>
+        <shardingsphere.version>5.2.0</shardingsphere.version>
+        <commons-collections4.version>4.1</commons-collections4.version>
+    </properties>
+
+    <!-- 模块管理 -->
+    <modules>
+    </modules>
+
+    <!-- 依赖管理 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- springboot -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- spring-cloud -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- rabbin替代品 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+                <version>${spring.cloud-loadbalancer}</version>
+            </dependency>
+
+            <!-- spring-cloud-alibaba -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- mybatis-plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!-- mysql driver -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-driver.version}</version>
+            </dependency>
+
+            <!-- ShardingSphere -->
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>shardingsphere-jdbc-core-spring-boot-starter</artifactId>
+                <version>${shardingsphere.version}</version>
+            </dependency>
+
+            <!-- commons-collections4 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${commons-collections4.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- 构建管理 -->
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.1</version>
+                <configuration>
+                    <!-- 关闭测试 -->
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
