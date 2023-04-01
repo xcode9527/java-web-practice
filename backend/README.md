@@ -78,8 +78,9 @@ $ yum install sshpass
 
 ~~~
 # elasticsearch 禁用swap
+# 注释 /dev/mapper/centos-swap swap swap defailts 0 0 这一行
 $ vim /etc/fstab
-
+#/dev/mapper/centos-swap swap                    swap    defaults        0 0
 
 ~~~
 
