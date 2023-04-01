@@ -1,7 +1,7 @@
 # 安装Kibana
 
 ## 安装
-~~~
+~~~shell
 # 版本号 7.17.8
 $ wget https://artifacts.elastic.co/downloads/kibana/kibana-7.17.8-linux-x86_64.tar.gz
 
@@ -13,7 +13,7 @@ $ chown -R es:es kibana-7.17.8
 ~~~
 
 ## 修改配置
-~~~
+~~~shell
 # 修改启动配置文件
 $ vim ./kibana-7.17.8/config/kibana.yml
 # 添加以下行

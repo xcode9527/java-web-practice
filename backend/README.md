@@ -1,7 +1,7 @@
 # 虚拟机
 
 ## 用户/密码
-~~~
+~~~shell
 root / zdw321
 zdw / 123456
 
@@ -9,7 +9,7 @@ zdw / 123456
 
 ## 系统参数调整
 ### 文件句柄数
-~~~
+~~~shell
 # 查看 open files
 $ ulimit -a
 
@@ -24,7 +24,7 @@ $ vim /etc/security/limits.conf
 ~~~
 
 ### 最大用户进程数
-~~~
+~~~shell
 # 查看 max user processes
 $ ulimit -a 
 
@@ -39,7 +39,7 @@ $ vim /etc/security/limits.conf
 ~~~
 
 ### vm.max_map_count
-~~~
+~~~sh
 # 查看
 $ sysctl -a|grep vm.max_map_count
 
@@ -53,7 +53,7 @@ vm.max_map_count=262144
 ~~~
 
 ### stack size
-~~~
+~~~shell
 # 查看 stack size
 $ ulimit -a
  
@@ -66,3 +66,22 @@ $ vim /etc/security/limits.conf
 * soft stack 1024
 * hard stack 1024
 ~~~
+
+### sshpass
+
+~~~shell
+# 安装sshpass, ssh免密交互
+$ yum install sshpass
+~~~
+
+### swap
+
+~~~
+# elasticsearch 禁用swap
+$ vim /etc/fstab
+
+
+~~~
+
+
+
